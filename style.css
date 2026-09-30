@@ -729,3 +729,9 @@ body {
     gap: 32px;
   }
 }
+
+/* Limita solo la larghezza di questo blocco di testo */
+.colonna-stretta {
+  max-width: 600px; /* Cambia questo numero per allargare o stringere (es. 500px o 700px) */
+  width: 100%;
+}
