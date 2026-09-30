@@ -542,3 +542,120 @@ body {
 .chapters a {
     color: inherit;
 }
+
+.footer-cta {
+  background-color: #000000; /* Nero puro */
+  text-align: center;
+  padding: 90px 20px 70px 20px;
+}
+
+.footer-title {
+  font-size: 2.75rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.footer-subtitle {
+  font-size: 1rem;
+  color: #999999;
+  margin: 0 0 32px 0;
+}
+
+/* Bottone Verde Figma */
+.button-figma {
+  display: inline-block;
+  background-color: #00aa45; /* Verde GitHub/Figma */
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.button-figma:hover {
+  background-color: #00c853;
+}
+
+
+/* --- PARTE INFERIORE (Sfondo Grigio Antracite) --- */
+.footer-bottom {
+  background-color: #121614; /* Grigio scuro antracite come nell'immagine */
+  border-top: 2px solid #23d160; /* Sottile linea verde brillante in cima */
+  padding: 32px 0;
+}
+
+/* Riga principale con Logo e Link */
+.footer-main-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 28px;
+}
+
+.footer-brand img {
+  display: block;
+  filter: brightness(0) invert(1); /* Rende il logo GitHub bianco */
+}
+
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.footer-link {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+/* Tasto Torna all'inizio con riquadro freccia */
+.footer-back-to-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.arrow-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #2a302c;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #ffffff;
+  font-size: 1.1rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.footer-back-to-top:hover .arrow-box {
+  border-color: #23d160;
+  color: #23d160;
+}
+
+/* Linea divisoria e crediti */
+.footer-credits {
+  border-top: 1px solid #222825; /* Linea divisoria scura */
+  padding-top: 24px;
+}
+
+.footer-credits p {
+  margin: 0;
+  color: #777777;
+  font-size: 0.85rem;
+}
