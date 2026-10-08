@@ -1,7 +1,29 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Sfondo nero a TUTTO lo schermo */
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000000 !important;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* 3. Centratura del blocco del sito */
+.container, main, .site-wrapper {
+  max-width: 1200px; /* o la larghezza massima usata nel tuo progetto */
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: #000000;
+}
 }
 
 img {
@@ -735,3 +757,4 @@ body {
   max-width: 600px; /* Cambia questo numero per allargare o stringere (es. 500px o 700px) */
   width: 100%;
 }
+
