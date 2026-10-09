@@ -898,3 +898,7 @@ section {
   max-width: 100% !important;
   background-color: #000000;
 }
+
+html {
+  scroll-behavior: smooth;
+}
