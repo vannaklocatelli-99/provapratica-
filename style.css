@@ -752,51 +752,59 @@ body {
   }
 }
 
-/* 1. Transizione "Spring" ultra-morbida stile iOS */
+/* 1. Transizioni fluide su bottoni, schede e link */
 .button, 
 .button-primary, 
 .button-secondary, 
 .button-figma, 
 .card, 
-.footer-back-to-top {
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-              box-shadow 0.4s ease,
-              border-color 0.4s ease,
-              background-color 0.4s ease !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+.footer-back-to-top, 
+.navigation-list a {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease !important;
 }
 
-/* 2. Hover marcato: Sollevamento 3D + Bagliore Intenso */
+/* 2. Hover sui Pulsanti (Sollevamento leggero + bagliore moderno) */
 .button:hover, 
-.button-figma:hover, 
-.card:hover {
-  transform: scale(1.08) translateY(-6px) !important; /* Si ingrandisce dell'8% e sale in alto */
-  border-color: rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7),
-              0 0 25px rgba(95, 237, 131, 0.35) !important; /* Bagliore verde/luminoso */
+.button-figma:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(95, 237, 131, 0.25) !important;
 }
 
-/* 3. Bottone Primario / Figma (Super Glow Verde) */
 .button-primary:hover, 
 .button-figma:hover {
-  background-color: #00ff55 !important;
-  color: #000000 !important;
-  box-shadow: 0 12px 30px rgba(0, 255, 85, 0.6),
-              0 0 40px rgba(0, 255, 85, 0.4) !important;
+  background-color: #0aa636 !important;
 }
 
-/* 4. Bottone Secondario / Vetro Trasparente */
 .button-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.3) !important;
-  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25) !important;
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
 }
 
-/* 5. Feedback di Pressione (Pressione Tattile al Click) */
+/* 3. Hover sulle Schede / Cards (Card Lift + Bordo Luminoso) */
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(95, 237, 131, 0.4) !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 4. Hover sui Link e sulla freccia "Torna su" */
+.footer-link:hover, 
+.navigation-list a:hover {
+  color: #5FED83 !important;
+}
+
+.footer-back-to-top:hover .arrow-box {
+  border-color: #5FED83 !important;
+  color: #5FED83 !important;
+  transform: translateY(-2px);
+}
+
+/* 5. Feedback di Pressione al Click (Sensazione Tattile iOS) */
 .button:active, 
 .button-figma:active, 
 .card:active {
-  transform: scale(0.92) translateY(2px) !important; /* Rimbalzo verso il basso al click */
-  transition: transform 0.1s ease !important;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(0) scale(0.98) !important;
 }
