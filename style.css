@@ -752,42 +752,51 @@ body {
   }
 }
 
-/* 1. Forza lo zero padding su tutti i contenitori e sezioni */
-.container,
-.hero-content,
-.chapters,
-.chapters.container,
-.cards-section,
-.cards-grid,
-.footer-cta,
-.footer-bottom,
-.footer-main-row,
-main,
-section {
-  width: 100% !important;
-  max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+/* 1. Transizione "Spring" ultra-morbida stile iOS */
+.button, 
+.button-primary, 
+.button-secondary, 
+.button-figma, 
+.card, 
+.footer-back-to-top {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease,
+              background-color 0.4s ease !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
 }
 
-/* 2. Forza le immagini a toccare bordo e bordo */
-.hero-image,
-.chapters img,
-.chapter-block img,
-.cards-section img {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin: 0 !important;
+/* 2. Hover marcato: Sollevamento 3D + Bagliore Intenso */
+.button:hover, 
+.button-figma:hover, 
+.card:hover {
+  transform: scale(1.08) translateY(-6px) !important; /* Si ingrandisce dell'8% e sale in alto */
+  border-color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7),
+              0 0 25px rgba(95, 237, 131, 0.35) !important; /* Bagliore verde/luminoso */
 }
 
-/* 3. Dà un leggero rientro interno SOLO al testo del footer e delle schede per non farli incollare al vetro */
-.footer-main-row,
-.footer-credits,
-.cards-grid,
-.hero-description,
-.chapters p {
-  padding-left: 1.5rem !important;
-  padding-right: 1.5rem !important;
+/* 3. Bottone Primario / Figma (Super Glow Verde) */
+.button-primary:hover, 
+.button-figma:hover {
+  background-color: #00ff55 !important;
+  color: #000000 !important;
+  box-shadow: 0 12px 30px rgba(0, 255, 85, 0.6),
+              0 0 40px rgba(0, 255, 85, 0.4) !important;
+}
+
+/* 4. Bottone Secondario / Vetro Trasparente */
+.button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* 5. Feedback di Pressione (Pressione Tattile al Click) */
+.button:active, 
+.button-figma:active, 
+.card:active {
+  transform: scale(0.92) translateY(2px) !important; /* Rimbalzo verso il basso al click */
+  transition: transform 0.1s ease !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4) !important;
 }
