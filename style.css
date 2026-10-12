@@ -902,3 +902,13 @@ section {
 html {
   scroll-behavior: smooth;
 }
+
+
+.hero-text, 
+.chapter-block p,
+.chapter-block .lista-punti {
+  max-width: 750px !important;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
