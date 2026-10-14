@@ -1517,3 +1517,164 @@ h1, h2, h3, h4, p {
 * {
   -webkit-touch-callout: none;
 }
+
+
+/* 1. Numero progressivo stile manifesto nei paragrafi o liste */
+.chapter-content p::before {
+  content: "/// ";
+  color: rgba(95, 237, 131, 0.3);
+  font-family: monospace;
+}
+
+/* 2. Effetto "Noise/Grana" leggerissimo al passaggio del mouse sulle card */
+.card:hover {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 8px 8px;
+}
+
+/* 3. Bordo a contrasto netto sulle immagini al click/active */
+.chapter-media img:active {
+  outline: 2px solid var(--color-cursor, #5FED83);
+  outline-offset: -2px;
+}
+
+/* 4. Effetto opacità graduale (Fade-in) sul testo del footer */
+footer p, footer a {
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
+}
+
+footer p:hover, footer a:hover {
+  opacity: 1;
+}
+
+.chapter-media img {
+  transition: filter 0.4s ease, opacity 0.3s ease;
+}
+
+.chapter-media img:hover {
+  filter: invert(1) hue-rotate(180deg) contrast(120%);
+}
+
+/* 2. Dettaglio "Crosshair / Mirino" agli angoli dei capitoli */
+.chapter {
+  position: relative;
+}
+
+.chapter::before {
+  content: "+";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  font-family: monospace;
+  font-size: 1rem;
+  color: var(--color-cursor, #5FED83);
+  opacity: 0.5;
+}
+
+/* 3. Testo evidenziato tipo pennarello / Evidenziatore Industriale */
+mark, .highlight {
+  background: var(--color-cursor, #5FED83);
+  color: #000000;
+  padding: 0.1em 0.3em;
+  font-weight: 700;
+}
+
+/* 4. Effetto "Marquee" / Testo Scorrevole Tecnico in un angolo */
+.chapter-content h2::after {
+  content: " // 2026_ARCHIVE";
+  font-size: 0.55em;
+  font-family: monospace;
+  color: var(--color-muted, #A4AEA6);
+  letter-spacing: 0.15em;
+  vertical-align: middle;
+}
+
+
+.chapter-content h2 {
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+.chapter-content h2::before {
+  content: "[ ";
+  color: var(--color-cursor, #5FED83);
+}
+
+.chapter-content h2::after {
+  content: " ]" !important;
+  color: var(--color-cursor, #5FED83);
+}
+
+/* 2. Effetto "Distorsione Glitch" al passaggio del mouse sui titoli */
+.chapter-content h2:hover {
+  text-shadow: 2px 0 var(--color-cursor, #5FED83), -2px 0 #FF0055;
+  transition: text-shadow 0.1s ease;
+}
+
+/* 3. Cornice di Sicurezza "Technical Data" attorno alle Immagini */
+.chapter-media {
+  position: relative;
+  padding: 8px;
+  background: #0D110E;
+  border: 1px dashed rgba(95, 237, 131, 0.3);
+}
+
+.chapter-media::after {
+  content: "IMG_REF // 1000PX_BREAKPOINT";
+  position: absolute;
+  bottom: 2px;
+  right: 6px;
+  font-family: monospace;
+  font-size: 0.6rem;
+  color: var(--color-cursor, #5FED83);
+  opacity: 0.6;
+}
+
+/* 4. Effetto Inversione di Contrasto sui Testi in Evidenza */
+p strong {
+  background: #ffffff;
+  color: #000000;
+  padding: 0 4px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+
+.card,
+.chapter-media img {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.chapter-media img:hover {
+  border-color: var(--color-cursor, #5FED83);
+}
+
+/* 2. Dettaglio numero/codice monospaziato e discreto per i titoli */
+.chapter-content h2::before {
+  content: "// ";
+  color: var(--color-cursor, #5FED83);
+  font-family: monospace;
+  font-weight: normal;
+}
+
+/* 3. Etichette/Tag essenziali stile terminale */
+.badge-brutalist {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--color-cursor, #5FED83);
+  background: rgba(95, 237, 131, 0.05);
+  border: 1px solid rgba(95, 237, 131, 0.2);
+  padding: 2px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* 4. Selezione testo nitida e ad alto contrasto */
+::selection {
+  background-color: var(--color-cursor, #5FED83);
+  color: #000000;
+}
