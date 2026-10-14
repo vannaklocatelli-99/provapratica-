@@ -4,13 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prova Pratica Marco Escher</title>
+  <title>Prova Pratica Vannak Locatelli</title>
   <link rel="stylesheet" href="style.css">
+  
+  <!-- IL JS DEVE AVERE defer -->
   <script src="script.js" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#top">Vai al contenuto</a>
+
   <header class="navigation">
     <div class="navigation-content">
       <div class="navigation-brand">
@@ -22,10 +25,8 @@
       </div>
       <div class="navigation-menu">
         <button class="navigation-toggle" type="button" aria-label="Menu dei capitoli" popovertarget="navigation-panel">
-          <img class="navigation-icon navigation-icon-open" src="assets/images/menu.svg" width="16" height="16" alt=""
-            aria-hidden="true" />
-          <img class="navigation-icon navigation-icon-close" src="assets/images/close.svg" width="16" height="16" alt=""
-            aria-hidden="true" />
+          <img class="navigation-icon navigation-icon-open" src="assets/images/menu.svg" width="16" height="16" alt="" aria-hidden="true" />
+          <img class="navigation-icon navigation-icon-close" src="assets/images/close.svg" width="16" height="16" alt="" aria-hidden="true" />
           <span class="navigation-label">Menu dei capitoli</span>
         </button>
         <nav id="navigation-panel" class="navigation-panel" popover="auto" aria-label="Capitoli della storia">
@@ -33,174 +34,188 @@
             <li><a href="#concept"><span>Concept</span></a></li>
             <li><a href="#sitemap"><span>Sitemap</span></a></li>
             <li><a href="#assets"><span>Assets</span></a></li>
-            <li><a href="#prototipi"><span>Prototipe</span></a></li>
+            <li><a href="#prototipi"><span>Prototipi</span></a></li>
             <li><a href="#highlights"><span>Highlights</span></a></li>
           </ul>
         </nav>
       </div>
     </div>
   </header>
+
   <main id="top" tabindex="-1">
+    
+    <!-- HERO SECTION STILLRUN -->
     <section class="hero">
       <div class="hero-content container">
         <p class="eyebrow">
           Vannak Locatelli · UI/UX Design · 2026 CFPBAUER-FONDAZIONE ICREA
-          <svg class="eyebrow-cursor" width="8" height="10" viewBox="0 0 8 10" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
+          <svg class="eyebrow-cursor" width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="8" height="10" fill="#5FED83" />
           </svg>
         </p>
         <h1 class="heading heading-size-1">STILLRUN</h1>
-        <div>
-          
-          <p class="hero-text text text-size-200"> <p class="hero-text">
-  <strong>STILLRUN</strong> non è una semplice vetrina: è un archivio grezzo sulla
-            Bikelife. <br>
-            <br.
-          <p class="hero-text text text-size-200">
-            Un analisi fotografica e testuale della cultura di strada su due ruote.<br .</p>
-          <p class="hero-text text text-size-200">
-            Questo spazio nasce per spiegare la struttura,il senso e le scelte visive <br>del progetto principale.<br .</p>
+        
+        <div class="hero-text">
+          <p class="text text-size-200">
+            <strong>STILLRUN</strong> non è una semplice vetrina: è un archivio grezzo sulla Bikelife.
+          </p>
+          <p class="text text-size-200">
+            Un'analisi fotografica e testuale della cultura di strada su due ruote.
+          </p>
+          <p class="text text-size-200">
+            Questo spazio nasce per spiegare la struttura, il senso e le scelte visive del progetto principale.
+          </p>
         </div>
 
         <div class="button-group">
-          <a href="#storia" class="button button-primary">Leggi la storia</a>
-          <a href="#elaborati" class="button button-secondary">Esplora gli elaborati</a>
+          <a href="#concept" class="button button-primary">Leggi la storia</a>
+          <a href="#assets" class="button button-secondary">Esplora gli elaborati</a>
         </div>
-        <img class="hero-image" src="assets/images/Screenshot 2026-09-30 alle 09.47.18 (2) 1.jpg"
-          alt="screenshot desktop della home di STILLRUN">
+
+        <img class="hero-image" src="assets/images/Screenshot 2026-09-30 alle 09.47.18 (2) 1.jpg" alt="screenshot desktop della home di STILLRUN">
       </div>
     </section>
-    <!-- Destinazioni provvisorie dei link, da completare/sostituire in base al vostro case study -->
-    <div class="chapters container" id="storia">
 
-
+    <!-- CAPITOLO 1: CONCEPT -->
+    <section id="concept" class="chapters container">
       <div>
-          <p class="hero-text text text-size-150">
-            <p class="hero-text">
-  <strong>STILLRUN</strong>
-        è un progetto di web design d'avanguardia concepita come un magazine digitale a forte impronta editoriale. <br>
-    Il sito è interamente dedicato alla cultura urbana della bikelife - esplorata sia attraverso il mondo delle moto sia delle biciclette - e si sviluppa come un vero e proprio manifesto visivo e valoriale di questa community.
-  </p>
-  <p class="hero-text text text-size-150">
-    Prendendo ispirazione dall'estetica rigida e d'impatto del brutalismo web, il sito rompe la classica navigazione immersiva guidata da uno scorrimento orizzontale di testi e immagini attraverso una tavolozza cromatica essenziale in bianco, rosso e nero. <br> E un sistema tipografico a 3 livelli, STILLRUN racconta le origini del movimento, la fratellanza tra i rider, le emozioni della guida e l'impatto che questa sottocultura ha saputo generare sulla società e sulle icone della cultura pop.
-  </p>
-      <img class="hero-image" src="assets/images/Component 2.jpg">
-    </div>
-    <div class="chapters container" id="storia">
-      <div>
-         <p class="hero-text text text-size-150">
-    Il mood di STILLRUN vive della tensione tra minimalismo industriale e adrenalina della strada, distaccandosi dai classici siti di motori per sposare l'editoria underground.
-  </p>
-  
-  <ul class="lista-punti hero-text text text-size-150">
-    <li>
-      <strong>Brutalismo meccanico:</strong> Un'estetica spigolosa e priva di filtri che evoca l'asfalto e le officine attraverso lo sfondo nero, il font monospaziato e la rigidità della griglia a vista.
-    </li>
-    <li>
-      <strong>Contrasto cinematico:</strong> Un'atmosfera notturna e ad alto impatto. Immagini quasi totalmente desaturate interrotte solo da fiammate di rosso segnale (#FF0000), per simulare la guida notturna sotto i lampioni.
-    </li>
-    <li>
-      <strong>Velocità geometrica:</strong> Lo scorrimento orizzontale e i tasti verticali comunicano un dinamismo controllato, trasformando la navigazione nel frame di una pellicola analogica sulla bikelife.
-    </li>
-  </ul>
+        <h2>Concept</h2>
+        <p class="hero-text text text-size-150">
+          <strong>STILLRUN</strong> è un progetto di web design d'avanguardia concepito come un magazine digitale a forte impronta editoriale.<br>
+          Il sito è interamente dedicato alla cultura urbana della bikelife - esplorata sia attraverso il mondo delle moto sia delle biciclette - e si sviluppa come un vero e proprio manifesto visivo e valoriale di questa community.
+        </p>
+        <p class="hero-text text text-size-150">
+          Prendendo ispirazione dall'estetica rigida e d'impatto del brutalismo web, il sito rompe la classica navigazione immersiva guidata da uno scorrimento orizzontale di testi e immagini attraverso una tavolozza cromatica essenziale in bianco, rosso e nero.<br>
+          Con un sistema tipografico a 3 livelli, STILLRUN racconta le origini del movimento, la fratellanza tra i rider, le emozioni della guida e l'impatto che questa sottocultura ha saputo generare sulla società.
+        </p>
       </div>
-      <img class="hero-image" src="assets/images/Component 7 1.jpg">
-      <img class="hero-image" src="assets/images/Component 5.jpg">
-    </div>
-    <div class="cards-grid">
-      
-      <!-- Blocco 1 -->
-      <article class="card card-active">
-        <div class="card-top-line"></div>
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-          </svg>
-        </div>
-        <h3 class="card-title">Studiare il sistema</h3>
-        <p class="card-text">
-          Sono partito dalla documentazione e dalle pagine GitHub: tipografia, colori, spazi e comportamenti formano un insieme di decisioni. Ho usato Primer Brand come vocabolario per costruire la mia pagina.
+      <img class="hero-image" src="assets/images/Component 2.jpg" alt="Componente Concept">
+    </section>
+
+    <!-- CAPITOLO 2: SITEMAP -->
+    <section id="sitemap" class="chapters container">
+      <div>
+        <h2>Sitemap & Identità</h2>
+        <p class="hero-text text text-size-150">
+          Il mood di STILLRUN vive della tensione tra minimalismo industriale e adrenalina della strada, distaccandosi dai classici siti di motori per sposare l'editoria underground.
         </p>
-      </article>
-
-      <!-- Blocco 2 -->
-      <article class="card">
-        <div class="card-top-line"></div>
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="9" y1="3" x2="9" y2="21"></line>
-          </svg>
-        </div>
-        <h3 class="card-title">Comporre la pagina</h3>
-        <p class="card-text">
-          Ho selezionato gli elaborati e dato a ogni contenuto una forma: Pillar per i livelli di lettura, Tabs per le viste, Testimonial per una riflessione. Gerarchie e spazi collegano i capitoli; sul mobile la composizione cambia disposizione.
-        </p>
-      </article>
-
-      <!-- Blocco 3 -->
-      <article class="card">
-        <div class="card-top-line"></div>
-        <div class="card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-        </div>
-        <h3 class="card-title">Verificare il risultato</h3>
-        <p class="card-text">
-          Il lavoro continua nel browser: controllo la leggibilità, i collegamenti e i controlli da tastiera a larghezze diverse. La prova pratica richiede anche di saper spiegare e modificare il codice, mantenere Figma e sito coerenti e pubblicare il lavoro con GitHub Pages.
-        </p>
-      </article>
-
-    </div>
-    
-    
-  </main>
-  <footer>
-<!-- Sezione superiore (Sfondo Nero) -->
-  <div class="footer-cta">
-    <div class="container">
-      <h2 class="footer-title">Entra nel progetto.</h2>
-      <p class="footer-subtitle">
-        Esplora il design e ritrova nel sito gli elaborati raccontati in questa storia.
-      </p>
-      <a href="https://www.figma.com/proto/sFlde48P5YhAInU2dSzeS0/MORGANTI-UX-UI?node-id=820-503&t=zGFscXm33Yujxi1F-1&scaling=scale-down-width&content-scaling=fixed&page-id=820%3A502" target="_blank" rel="noopener noreferrer" class="button-figma">Apri il file Figma</a>
-
-  <!-- Sezione inferiore (Sfondo Grigio Antracite con linea verde) -->
-  <div class="footer-bottom">
-    <div class="container">
-      
-      <!-- Riga principale: Logo e Navigazione -->
-      <div class="footer-main-row">
-        <div class="footer-brand">
-          <a href="https://github.com/education" aria-label="GitHub Education">
-            <img src="assets/images/github-white-icon.png.webp" width="28" height="28" alt="GitHub Logo" />
-          </a>
-        </div>
         
-        <nav class="footer-nav" aria-label="Link del footer">
-          <a href="" class="footer-link">GitHub Education</a>
-          <a href="#" class="footer-link">File Figma</a>
-          <a href="#top" class="footer-back-to-top">
-            <span>Torna all'inizio</span>
-            <span class="arrow-box" aria-hidden="true">↑</span>
-          </a>
-        </nav>
+        <ul class="lista-punti hero-text text text-size-150">
+          <li>
+            <strong>Brutalismo meccanico:</strong> Un'estetica spigolosa e priva di filtri che evoca l'asfalto e le officine attraverso lo sfondo nero, il font monospaziato e la rigidità della griglia a vista.
+          </li>
+          <li>
+            <strong>Contrasto cinematico:</strong> Un'atmosfera notturna e ad alto impatto. Immagini desaturate interrotte solo da fiammate di rosso segnale (#FF0000), per simulare la guida notturna sotto i lampioni.
+          </li>
+          <li>
+            <strong>Velocità geometrica:</strong> Lo scorrimento orizzontale e i tasti verticali comunicano un dinamismo controllato, trasformando la navigazione nel frame di una pellicola analogica.
+          </li>
+        </ul>
       </div>
+      <img class="hero-image" src="assets/images/Component 7 1.jpg" alt="Componente 7">
+      <img class="hero-image" src="assets/images/Component 5.jpg" alt="Componente 5">
+    </section>
 
-      <!-- Riga inferiore: Crediti -->
-      <div class="footer-credits">
-        <p>Student Story di Vannak Locatelli - 2026</p>
+    <!-- CAPITOLO 3: ASSETS -->
+    <section id="assets" class="container">
+      <h2>Assets e Carte</h2>
+      <div class="cards-grid">
+        
+        <article class="card card-active">
+          <div class="card-top-line"></div>
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+          </div>
+          <h3 class="card-title">Studiare il sistema</h3>
+          <p class="card-text">
+            Sono partito dalla documentazione e dalle pagine GitHub: tipografia, colori, spazi e comportamenti formano un insieme di decisioni. Ho usato Primer Brand come vocabolario per costruire la mia pagina.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-top-line"></div>
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="9" y1="3" x2="9" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="card-title">Comporre la pagina</h3>
+          <p class="card-text">
+            Ho selezionato gli elaborati e dato a ogni contenuto una forma: Pillar per i livelli di lettura, Tabs per le viste, Testimonial per una riflessione. Gerarchie e spazi collegano i capitoli; sul mobile la composizione cambia disposizione.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-top-line"></div>
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="card-title">Verificare il risultato</h3>
+          <p class="card-text">
+            Il lavoro continua nel browser: controllo la leggibilità, i collegamenti e i controlli da tastiera a larghezze diverse. La prova pratica richiede anche di saper spiegare e modificare il codice, mantenere Figma e sito coerenti e pubblicare il lavoro con GitHub Pages.
+          </p>
+        </article>
+
       </div>
+    </section>
 
+    <!-- CAPITOLO 4: PROTOTIPI -->
+    <section id="prototipi" class="container">
+      <h2>Prototipi</h2>
+    </section>
+
+    <!-- CAPITOLO 5: HIGHLIGHTS -->
+    <section id="highlights" class="container">
+      <h2>Highlights</h2>
+    </section>
+
+  </main>
+
+  <!-- FOOTER PERFETTAMENTE CHIUSO E ISOLATO -->
+  <footer>
+    <div class="footer-cta">
+      <div class="container">
+        <h2 class="footer-title">Entra nel progetto.</h2>
+        <p class="footer-subtitle">
+          Esplora il design e ritrova nel sito gli elaborati raccontati in questa storia.
+        </p>
+        <a href="https://www.figma.com/proto/sFlde48P5YhAInU2dSzeS0/MORGANTI-UX-UI?node-id=820-503&t=zGFscXm33Yujxi1F-1&scaling=scale-down-width&content-scaling=fixed&page-id=820%3A502" target="_blank" rel="noopener noreferrer" class="button-figma">Apri il file Figma</a>
+      </div>
     </div>
-  </div>
 
-    
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-main-row">
+          <div class="footer-brand">
+            <a href="https://github.com/education" aria-label="GitHub Education">
+              <img src="assets/images/github-white-icon.png.webp" width="28" height="28" alt="GitHub Logo" />
+            </a>
+          </div>
+          
+          <nav class="footer-nav" aria-label="Link del footer">
+            <a href="https://github.com/education" class="footer-link">GitHub Education</a>
+            <a href="https://www.figma.com/proto/sFlde48P5YhAInU2dSzeS0/MORGANTI-UX-UI" target="_blank" rel="noopener noreferrer" class="footer-link">File Figma</a>
+            <a href="#top" class="footer-back-to-top">
+              <span>Torna all'inizio</span>
+              <span class="arrow-box" aria-hidden="true">↑</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="footer-credits">
+          <p>Student Story di Vannak Locatelli - 2026</p>
+        </div>
+      </div>
+    </div>
   </footer>
+
 </body>
 
 </html>

@@ -16,7 +16,7 @@ html, body {
 
 /* 3. Centratura del blocco del sito */
 .container, main, .site-wrapper {
-  max-width: 1200px; /* o la larghezza massima usata nel tuo progetto */
+  max-width: 1200px;
   width: 100%;
   margin-left: auto !important;
   margin-right: auto !important;
@@ -911,4 +911,609 @@ html {
   width: 100%;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+}
+.card-title {
+  color: #ffffff !important; /* Testo bianco puro per il titolo della card */
+}
+
+.card:not(.card-active) .card-title {
+  color: var(--color-muted, #A4AEA6) !important; /* Usa il grigio chiaro delle variabili */
+}
+
+.card-text {
+  color: #b0b8b2 !important; /* Grigio morbido ma ad alto contrasto per la leggibilità */
+}
+
+.card-top-line {
+  background-color: var(--color-border-muted, #191F1B) !important;
+}
+
+.card-active .card-top-line {
+  background-color: var(--color-cursor, #5FED83) !important; /* Riprende il verde cursore del brand */
+}
+
+
+
+:root {
+  --color-cursor: #5FED83;
+  --color-border-muted: #191F1B;
+  --navigation-height: 3.5em;
+  --layer-navigation: 90;
+}
+
+/* 2. Linea decorativa verde fluo sotto l'header */
+.navigation::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-cursor);
+  pointer-events: none;
+}
+
+/* 3. Gestione icone Apri/Chiudi nel pulsante Mobile (:has) */
+.navigation-menu:has(:popover-open) .navigation-icon-open {
+  display: none !important;
+}
+
+.navigation-menu:has(:popover-open) .navigation-icon-close {
+  display: block !important;
+}
+
+.navigation-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* 4. LAYOUT DESKTOP (Quando JS rimuove l'attributo popover) */
+@media (min-width: 1000px) {
+  .navigation-content {
+    flex-wrap: nowrap !important;
+    height: calc(var(--navigation-height) - 1px);
+  }
+
+  /* Quando il popover viene rimosso su desktop */
+  .navigation-menu:has(.navigation-panel:not([popover])) {
+    width: auto !important;
+    margin-left: 0 !important;
+  }
+
+  .navigation-panel:not([popover]) {
+    position: static !important;
+    height: 100% !important;
+    border: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 100% !important;
+    gap: 0 !important;
+    padding: 0 0 0 1em !important;
+    margin: 0 !important;
+    list-style: none !important;
+    border-left: 1px solid var(--color-border-muted) !important; /* Linea sottile verticale a sinistra */
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 0.25em !important;
+    color: #e6edf3 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a span {
+    padding: 0.25em 0.75em !important;
+    border-radius: 100em !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a:hover span {
+    background: #151D17 !important;
+    color: #2ea043 !important; /* Verde al passaggio del mouse */
+  }
+}
+
+@media (min-width: 1000px) {
+  /* 1. Nasconde il pulsante toggle del menu */
+  .navigation-toggle {
+    display: none !important;
+  }
+
+  /* 2. Dispone il contenitore in orizzontale */
+  .navigation-menu:has(.navigation-panel:not([popover])) {
+    width: auto !important;
+    margin-left: 0 !important;
+  }
+
+  /* 3. Ripristina il pannello come blocco fisso anziché popover */
+  .navigation-panel:not([popover]) {
+    position: static !important;
+    height: 100% !important;
+    border: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    transform: none !important;
+  }
+
+  /* 4. Mette la lista in riga orizzontale con bordo verticale a sinistra */
+  .navigation-panel:not([popover]) .navigation-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 100% !important;
+    gap: 0 !important;
+    padding: 0 0 0 1em !important;
+    margin: 0 !important;
+    list-style: none !important;
+    border-left: 1px solid var(--color-border-muted) !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 0.25em !important;
+    color: var(--color-white) !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a span {
+    padding: 0.25em 0.75em !important;
+    border-radius: var(--radius-pill) !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a:hover span {
+    background: var(--navigation-link-hover-background) !important;
+    color: var(--color-cursor) !important;
+  }
+}
+
+@media (min-width: 1000px) {
+  /* Nasconde il pulsante del menu mobile quando sei su PC */
+  .navigation-toggle {
+    display: none !important;
+  }
+
+  /* Mostra il pannello orizzontale dei link quando non ha popover */
+  .navigation-panel:not([popover]) {
+    display: flex !important;
+    position: static !important;
+    height: 100% !important;
+    border: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 100% !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 0 0 1em !important;
+    list-style: none !important;
+    border-left: var(--border-width) solid var(--color-border-muted) !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 0.25em !important;
+    color: var(--color-white) !important;
+    text-decoration: none !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a span {
+    padding: 0.25em 0.75em !important;
+    border-radius: var(--radius-pill) !important;
+  }
+
+  .navigation-panel:not([popover]) .navigation-list a:hover span {
+    background: var(--navigation-link-hover-background) !important;
+    color: var(--color-cursor) !important;
+  }
+}
+
+
+@media (min-width: 1000px) {
+  /* 1. Nasconde il pulsante del menu mobile */
+  .navigation-toggle {
+    display: none !important;
+  }
+
+  /* 2. Mostra e dispone la striscia dei capitoli in orizzontale */
+  #navigation-panel,
+  .navigation-panel {
+    display: flex !important;
+    position: static !important;
+    height: 100% !important;
+    background: transparent !important;
+    border: 0 !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .navigation-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    height: 100% !important;
+    margin: 0 !important;
+    padding-left: 1em !important;
+    list-style: none !important;
+  }
+
+  .navigation-list li {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
+
+  .navigation-list a {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 0.25em !important;
+    color: #fff !important;
+    text-decoration: none !important;
+    font-size: 0.875em !important;
+    white-space: nowrap !important;
+  }
+
+  .navigation-list a span {
+    padding: 0.25em 0.75em !important;
+    border-radius: 100em !important;
+  }
+
+  .navigation-list a:hover span {
+    background: #151D17 !important;
+    color: #5FED83 !important; /* Verde fluo al passaggio del mouse */
+  }
+}
+
+@media (min-width: 1000px) {
+  /* Annulla la spinta verso destra */
+  .navigation-content {
+    justify-content: flex-start !important;
+  }
+
+  .navigation-menu {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    justify-content: flex-start !important;
+    width: auto !important;
+  }
+
+  /* Assicura che la lista parta subito dopo la linea verticale del brand */
+  .navigation-panel:not([popover]) .navigation-list {
+    justify-content: flex-start !important;
+    padding-left: 1em !important;
+    margin: 0 !important;
+  }
+}
+.navigation-list a span {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.card {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid var(--color-border-muted, #191F1B);
+  background: #090D0A;
+  border-radius: 6px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-cursor, #5FED83);
+  box-shadow: 0 8px 20px rgba(95, 237, 131, 0.08);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #191F1B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5FED83;
+}
+::selection {
+  background: #5FED83;
+  color: #000;
+}
+
+/* Stile per i badge o parole chiave */
+strong {
+  color: #fff;
+  font-weight: 600;
+}
+.card-active {
+  border-top: 2px solid var(--color-cursor, #5FED83) !important;
+  background: linear-gradient(180deg, rgba(95, 237, 131, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Effetto di luce morbida sotto l'Header */
+.navigation {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.footer-back-to-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  color: var(--color-muted, #A4AEA6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-back-to-top:hover {
+  color: var(--color-cursor, #5FED83);
+}
+
+.footer-back-to-top:hover .arrow-box {
+  transform: translateY(-3px);
+}
+
+.arrow-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75em;
+  height: 1.75em;
+  border: 1px solid var(--color-border-muted, #191F1B);
+  border-radius: 4px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-back-to-top:hover .arrow-box {
+  border-color: var(--color-cursor, #5FED83);
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .chapters {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+}
+
+
+
+
+
+.hero {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* 2. Effetto "Scanline" Retrò/Cyber su tutta la pagina */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.15) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* 3. Indicatore di Sezione "Active" nel Menu (Sottolineatura Verde) */
+.navigation-list a {
+  position: relative;
+}
+
+.navigation-list a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-cursor, #5FED83);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navigation-list a:hover::after {
+  width: 80%;
+  left: 10%;
+}
+
+/* 4. Effetto Ingrandimento / Spotlight sui Titoli H2 dei Capitoli */
+.chapter-content h2, 
+section h2 {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.chapter-content h2:hover, 
+section h2:hover {
+  color: var(--color-cursor, #5FED83);
+}
+
+/* 5. Transizione Smooth per lo Scroll della Pagina */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 6. Animazione Pulse/Blink sul Cursore dell'Eyebrow */
+.eyebrow-cursor {
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* 2. Feedback visivo quasi impercettibile al click sui link del menu */
+.navigation-list a {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.navigation-list a:active {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+/* 3. Transizione morbida sul cambio di colore delle icone/loghi */
+.navigation-logo img,
+.navigation-icon {
+  transition: opacity 0.2s ease, filter 0.2s ease;
+}
+
+.navigation-logo:hover img {
+  opacity: 0.85;
+}
+
+/* 4. Tocco di raffinatezza per la prima riga dei testi dei capitoli */
+.chapter-content p {
+  color: #c5cdc7; /* Un grigio leggermente più morbido del bianco puro per facilitare la lettura */
+  line-height: 1.65;
+}
+
+.chapter-content p strong {
+  color: #ffffff; /* Fa risaltare solo le parole in grassetto */
+}
+
+/* 5. Transizione fluida sul bordo dei contenitori/card quando si scorre o si passa il mouse */
+.card,
+.chapter-media {
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* 6. Evita che le immagini e gli elementi interattivi vengano selezionati per sbaglio trascinando il mouse */
+.navigation,
+.hero-image,
+.chapter-media img,
+button {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 1. Transizione morbida sul cambio di stato dei link (evita scatti di colore) */
+a, button {
+  transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 2. Riduzione dell'affaticamento visivo sui bordi scuri */
+hr, .border-muted {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 3. Rimozione del rettangolo blu/arancione di focus predefinito del browser sui click (mantiene l'accessibilità) */
+:focus-visible {
+  outline: 2px solid var(--color-cursor, #5FED83) !important;
+  outline-offset: 3px !important;
+}
+
+:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+/* 4. Effetto bilanciato sui titoli lungo più righe per evitare parole isolate (Orphans) */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* 5. Prevenzione dello scatto della pagina quando compaiono/scompaiono le scrollbar */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* 6. Resa cromatica ideale per immagini scure in dark mode */
+img {
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+
+
+
+/* 1. Riduce i movimenti per chi ha l'impostazione "Reduce Motion" attiva sul sistema operativo */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 2. Ottimizza la resa dei font durante il caricamento evitando salti di layout (CLS) */
+body {
+  font-display: swap;
+  font-synthesis: none;
+}
+
+/* 3. Aumenta la superficie di contatto cliccabile sui bottoni/iconcine piccole per mobile */
+button, 
+.navigation-toggle,
+.footer-back-to-top {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* 4. Mantiene gli spezzamenti di testo leggibili evitando trattini errati nei titoli */
+h1, h2, h3, h4, p {
+  hyphens: manual;
+  overflow-wrap: break-word;
+}
+
+/* 5. Previene la comparsa imprevista dell'evidenziazione blu al tocco prolungato da smartphone */
+* {
+  -webkit-touch-callout: none;
 }

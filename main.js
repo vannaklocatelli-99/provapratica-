@@ -1,20 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Gestione responsive del menu Popover su Desktop / Mobile
-  const navPanel = document.querySelector(".navigation-panel");
-  const mediaQuery = window.matchMedia("(min-width: 63.25rem)");
+  // 1. Gestione responsive del menu Popover su Desktop / Mobile (Soglia a 1000px)
+  const navPanel = document.getElementById("navigation-panel") || document.querySelector(".navigation-panel");
+  const mediaQuery = window.matchMedia("(min-width: 1000px)");
 
   function handleDesktopPopover(e) {
     if (!navPanel) return;
     
     if (e.matches) {
+      // Su Desktop rimuove l'attributo popover
       navPanel.removeAttribute("popover");
     } else {
+      // Su Mobile lo ripristina
       navPanel.setAttribute("popover", "auto");
     }
   }
 
   handleDesktopPopover(mediaQuery);
   mediaQuery.addEventListener("change", handleDesktopPopover);
+});
 
   // 2. Scroll fluido e chiusura menu per le voci dei capitoli (#concept, #sitemap, ecc.)
   const menuLinks = document.querySelectorAll(".navigation-panel a[href^='#']");
@@ -34,12 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
               navPanel.hidePopover();
             } catch (err) {
-              // Ignora se non è aperto come popover
+              // Ignora se non è aperto come popover su desktop
             }
           }
 
-          // Scorrimento fluido verso la sezione corrispondente all'id
-          targetElement.scrollIntoView({
+          // Scorrimento fluido verso la sezione corrispondente
+          t4argetElement.scrollIntoView({
             behavior: "smooth",
             block: "start"
           });
@@ -61,3 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+
