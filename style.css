@@ -1678,3 +1678,7 @@ p strong {
   background-color: var(--color-cursor, #5FED83);
   color: #000000;
 }
+
+.cta-section { /* inserisci il nome della tua classe */
+  border-top: none !important;
+}
