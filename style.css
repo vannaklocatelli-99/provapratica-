@@ -12,8 +12,7 @@ html, body {
   color: #ffffff;
   overflow-x: hidden;
 }
-
-/* 2. Contenitore standard per le sezioni scure */
+ Contenitore standard per le sezioni scure 
 .container {
   max-width: 1200px;
   width: 100%;
@@ -23,7 +22,7 @@ html, body {
   padding-right: 1.5rem;
 }
 
-/* 3. Sezione a tema chiaro (Sfruttiamo la specificità senza !important) */
+tema chiaro 
 section.theme-light {
   background-color: #ffffff;
   color: #24292f;
@@ -792,222 +791,73 @@ body {
   }
 }
 
-/* 1. Transizioni fluide su bottoni, schede e link */
-.button, 
-.button-primary, 
-.button-secondary, 
-.button-figma, 
-.card, 
-.footer-back-to-top, 
-.navigation-list a {
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s ease,
-              border-color 0.25s ease,
-              box-shadow 0.25s ease !important;
-}
+@media (min-width: 1000px) {
+  /* 1. Nasconde il pulsante toggle del menu mobile */
+  .navigation-toggle {
+    display: none;
+  }
 
-/* 2. Hover sui Pulsanti (Sollevamento leggero + bagliore moderno) */
-.button:hover, 
-.button-figma:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(95, 237, 131, 0.25) !important;
-}
+  /* 2. Struttura e spaziatura del contenuto della navbar */
+  .navigation-content {
+    flex-wrap: nowrap;
+    height: calc(var(--navigation-height) - 1px);
+  }
 
-.button-primary:hover, 
-.button-figma:hover {
-  background-color: #0aa636 !important;
-}
+  .navigation-menu:has(.navigation-panel:not([popover])) {
+    width: auto;
+    margin-left: 0;
+  }
 
-.button-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.2) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-}
+  /* 3. Ripristina il pannello come blocco fisso orizzontale */
+  .navigation-panel:not([popover]) {
+    display: flex;
+    position: static;
+    height: 100%;
+    border: 0;
+    overflow: visible;
+    background: transparent;
+    transform: none;
+  }
 
-/* 3. Hover sulle Schede / Cards (Card Lift + Bordo Luminoso) */
-.card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(95, 237, 131, 0.4) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6) !important;
-}
+  /* 4. Lista dei link disposta in riga con bordo a sinistra */
+  .navigation-panel:not([popover]) .navigation-list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    gap: 0;
+    margin: 0;
+    padding: 0 0 0 1em;
+    list-style: none;
+    border-left: 1px solid var(--color-border-muted);
+  }
 
-/* 4. Hover sui Link e sulla freccia "Torna su" */
-.footer-link:hover, 
-.navigation-list a:hover {
-  color: #5FED83 !important;
-}
+  /* 5. Singoli link e interazioni al passaggio del mouse */
+  .navigation-panel:not([popover]) .navigation-list a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 0.25em;
+    color: var(--color-white, #e6edf3);
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-.footer-back-to-top:hover .arrow-box {
-  border-color: #5FED83 !important;
-  color: #5FED83 !important;
-  transform: translateY(-2px);
-}
+  .navigation-panel:not([popover]) .navigation-list a span {
+    padding: 0.25em 0.75em;
+    border-radius: var(--radius-pill, 100em);
+  }
 
-/* 5. Feedback di Pressione al Click (Sensazione Tattile iOS) */
-.button:active, 
-.button-figma:active, 
-.card:active {
-  transform: translateY(0) scale(0.98) !important;
-}
-/* 1. Azzera i bordi e i margini su tutti i contenitori principali */
-.container, 
-.hero-content, 
-.chapters, 
-.chapters.container, 
-.cards-section, 
-.cards-grid, 
-.footer-cta, 
-.footer-bottom, 
-.footer-main-row, 
-main, 
-section {
-  width: 100% !important;
-  max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  border-left: none !important;
-  border-right: none !important;
-  box-sizing: border-box !important;
-}
-
-/* RIMOZIONE BORDI VERTICALI E ALLARGAMENTO CONTENUTO */
-.hero-content {
-  border-left: none !important;
-  border-right: none !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.container {
-  max-width: 100% !important;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/* Fa occupare a tutte le immagini l'intera ampiezza dello schermo */
-.hero-image, 
-.chapters img {
-  width: 100% !important;
-  max-width: 100% !important;
-  display: block;
-}
-
-.hero-content,
-.container,
-.chapters,
-.chapters.container,
-.cards-section,
-.cards-grid,
-.footer-cta .container,
-.footer-bottom .container {
-  max-width: 1100px !important; /* Stessa ampiezza per tutte le sezioni */
-  width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  border-left: 1px solid var(--color-border-muted, #191F1B) !important;
-  border-right: 1px solid var(--color-border-muted, #191F1B) !important;
-  padding-left: 2rem !important;
-  padding-right: 2rem !important;
-  box-sizing: border-box !important;
-}
-
-/* 2. Assicura che immagini e banner riempiano perfettamente la scatola di 1100px */
-.hero-image,
-.chapters img,
-.chapter-block img,
-.cards-section img {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  display: block !important;
-}
-
-/* 3. La griglia delle 3 schede si adatta alla nuova larghezza di 1100px */
-.cards-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  gap: 24px !important;
-}
-
-/* 4. Gli sfondi esterni dell'header e del footer continuano a coprire da bordo a bordo */
-.navigation,
-.footer-cta,
-.footer-bottom {
-  width: 100% !important;
-  max-width: 100% !important;
-  background-color: #000000;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-
-.hero-text, 
-.chapter-block p,
-.chapter-block .lista-punti {
-  max-width: 750px !important;
-  width: 100%;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-}
-.card-title {
-  color: #ffffff !important; /* Testo bianco puro per il titolo della card */
-}
-
-.card:not(.card-active) .card-title {
-  color: var(--color-muted, #A4AEA6) !important; /* Usa il grigio chiaro delle variabili */
-}
-
-.card-text {
-  color: #b0b8b2 !important; /* Grigio morbido ma ad alto contrasto per la leggibilità */
-}
-
-.card-top-line {
-  background-color: var(--color-border-muted, #191F1B) !important;
-}
-
-.card-active .card-top-line {
-  background-color: var(--color-cursor, #5FED83) !important; /* Riprende il verde cursore del brand */
+  .navigation-panel:not([popover]) .navigation-list a:hover span {
+    background: var(--navigation-link-hover-background, #151D17);
+    color: var(--color-cursor, #2ea043);
+  }
 }
 
 
 
-:root {
-  --color-cursor: #5FED83;
-  --color-border-muted: #191F1B;
-  --navigation-height: 3.5em;
-  --layer-navigation: 90;
-}
 
-/* 2. Linea decorativa verde fluo sotto l'header */
-.navigation::after {
-  content: "";
-  position: absolute;
-  top: calc(100% + 1px);
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--color-cursor);
-  pointer-events: none;
-}
 
-/* 3. Gestione icone Apri/Chiudi nel pulsante Mobile (:has) */
-.navigation-menu:has(:popover-open) .navigation-icon-open {
-  display: none !important;
-}
-
-.navigation-menu:has(:popover-open) .navigation-icon-close {
-  display: block !important;
-}
-
-.navigation-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
 
 /* 4. LAYOUT DESKTOP (Quando JS rimuove l'attributo popover) */
 @media (min-width: 1000px) {
@@ -1173,6 +1023,21 @@ html {
   .navigation-toggle {
     display: none !important;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* 2. Mostra e dispone la striscia dei capitoli in orizzontale */
   #navigation-panel,
@@ -1722,6 +1587,4 @@ p strong {
 .cta-section { /* inserisci il nome della tua classe */
   border-top: none !important;
 }
-
-
 
