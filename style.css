@@ -5,24 +5,33 @@
   box-sizing: border-box;
 }
 
-/* 2. Sfondo nero a TUTTO lo schermo */
 html, body {
   width: 100%;
   min-height: 100vh;
-  background-color: #000000 !important;
+  background-color: #000000;
   color: #ffffff;
   overflow-x: hidden;
 }
 
-/* 3. Centratura del blocco del sito */
-.container, main, .site-wrapper {
+/* 2. Contenitore standard per le sezioni scure */
+.container {
   max-width: 1200px;
   width: 100%;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  margin-left: auto;
+  margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  background-color: #000000;
+}
+
+/* 3. Sezione a tema chiaro (Sfruttiamo la specificità senza !important) */
+section.theme-light {
+  background-color: #ffffff;
+  color: #24292f;
+}
+
+/* Assicura che il container dentro la sezione chiara sia bianco */
+section.theme-light .container {
+  background-color: #ffffff;
 }
 }
 
@@ -543,27 +552,58 @@ body {
     }
 }
 
-/* Destinazioni provvisorie dei link, da completare/sostituire in base al vostro case study */
-.chapters {
-    --chapters-padding: 2em 1.5em;
-    --chapters-section-min-height: 65vh;
-    --chapters-section-padding-top: 2em;
 
-    padding: var(--chapters-padding);
-    color: var(--color-white);
-    background: var(--color-black);
-    line-height: var(--text-200-line-height);
+
+
+.breakdownTabs-visual {
+  display: none;
 }
 
-.chapters section {
-    min-height: var(--chapters-section-min-height);
-    padding-top: var(--chapters-section-padding-top);
-    border-top: var(--border-width) solid var(--color-border-muted);
+.breakdownTabs:has(#breakdownTabs-item-study.is-selected) .breakdownTabs-visual-study,
+.breakdownTabs:has(#breakdownTabs-item-layout.is-selected) .breakdownTabs-visual-layout,
+.breakdownTabs:has(#breakdownTabs-item-check.is-selected) .breakdownTabs-visual-check {
+  display: block;
 }
 
-.chapters a {
-    color: inherit;
+/* Su mobile, se non è selezionato, nascondi il testo */
+.breakdownTabs-item:not(.is-selected) .breakdownTabs-text {
+  display: none;
 }
+
+/* Da 1000px in poi diventa a griglia (schede) */
+@media (min-width: 1000px) {
+  .breakdownTabs-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  
+  /* Sul desktop i testi si vedono tutti */
+  .breakdownTabs-item .breakdownTabs-text {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .footer-cta {
   background-color: #000000; /* Nero puro */
@@ -1682,3 +1722,6 @@ p strong {
 .cta-section { /* inserisci il nome della tua classe */
   border-top: none !important;
 }
+
+
+
