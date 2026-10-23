@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css">
   
   <!-- IL JS DEVE AVERE defer -->
-  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -119,11 +118,11 @@
 
    
 
-
-
 <section id="questa-pagina" aria-labelledby="section-title" class="theme-light border-top">
+  
 
-  <div class="breakdownTabs border-block">
+
+  <div class="breakdownTabs border-block" data-active="0">
     <div class="breakdownTabs-content container border-inline">
       
       <!-- Immagini -->
@@ -139,7 +138,7 @@
         </div>
       </div>
 
-      <!-- Accordion / Schede -->
+  
       <ul class="breakdownTabs-list">
         <li class="breakdownTabs-item is-selected" id="breakdownTabs-item-study">
           <button type="button" class="breakdownTabs-button">
@@ -171,7 +170,6 @@
 
     </div>
   </div>
-</section>
 </section>
 
 
@@ -244,6 +242,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="main.js" defer></script>
 
 </body>
 

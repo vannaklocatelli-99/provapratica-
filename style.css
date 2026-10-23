@@ -1347,3 +1347,43 @@ section.theme-light .container {
   font-size: 0.95rem;
   line-height: 1.5;
 }
+
+.breakdownTabs-button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  width: 100%;
+  cursor: pointer; 
+  padding: 1rem 0;
+}
+
+/* Nasconde tutte le immagini di base */
+.breakdownTabs-visual {
+  display: none;
+}
+
+/* Mostra l'immagine corrispondente all'attributo data-active del contenitore */
+.breakdownTabs[data-active="0"] .breakdownTabs-visual-study,
+.breakdownTabs[data-active="1"] .breakdownTabs-visual-layout,
+.breakdownTabs[data-active="2"] .breakdownTabs-visual-check {
+  display: block;
+}
+
+/* Gestione dei testi su mobile */
+.breakdownTabs-item:not(.is-selected) .breakdownTabs-text {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  .breakdownTabs-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  
+  .breakdownTabs-item .breakdownTabs-text {
+    display: block;
+  }
+}
