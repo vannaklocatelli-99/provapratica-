@@ -1338,36 +1338,24 @@ section.theme-light .container {
 
 /* Immagini e testi */
 .breakdownTabs-visuals {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.breakdownTabs-text {
-  color: #57606a;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.breakdownTabs-button {
-  border: 0;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  text-align: left;
   width: 100%;
-  cursor: pointer; 
-  padding: 1rem 0;
+  margin-bottom: var(--spacing-24, 24px);
+  overflow: hidden;
+  border-radius: 8px; /* Smussatura opzionale per pulire i bordi */
 }
 
-/* Nasconde tutte le immagini di base */
 .breakdownTabs-visual {
   display: none;
+  width: 100%;
+  max-height: 400px; /* Evita che l'immagine diventi troppo alta */
+  object-fit: contain; /* Mantiene le proporzioni corrette senza tagliare l'immagine */
+  height: auto;
 }
 
-/* Mostra l'immagine corrispondente all'attributo data-active del contenitore */
-.breakdownTabs[data-active="0"] .breakdownTabs-visual-study,
-.breakdownTabs[data-active="1"] .breakdownTabs-visual-layout,
-.breakdownTabs[data-active="2"] .breakdownTabs-visual-check {
+/* Mostra l'immagine attiva */
+.breakdownTabs:has(#breakdownTabs-item-study.is-selected) .breakdownTabs-visual-study,
+.breakdownTabs:has(#breakdownTabs-item-layout.is-selected) .breakdownTabs-visual-layout,
+.breakdownTabs:has(#breakdownTabs-item-check.is-selected) .breakdownTabs-visual-check {
   display: block;
 }
 
@@ -1387,3 +1375,171 @@ section.theme-light .container {
     display: block;
   }
 }
+
+.breakdownTabs-visual { display: none; }
+.breakdownTabs:has(.breakdownTabs-item:nth-child(1).is-selected) .breakdownTabs-visual-study { display: block; }
+.breakdownTabs:has(.breakdownTabs-item:nth-child(2).is-selected) .breakdownTabs-visual-layout { display: block; }
+.breakdownTabs:has(.breakdownTabs-item:nth-child(3).is-selected) .breakdownTabs-visual-check { display: block; }
+
+/* Su mobile nascondi i testi non selezionati */
+.breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text { display: none; }
+
+/* Su desktop (da 1000px in poi) metti tutto in griglia e mostra i testi */
+@media (min-width: 1000px) {
+  .breakdownTabs-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .breakdownTabs-ready .breakdownTabs-item .breakdownTabs-text { display: block; }
+}
+
+
+.breakdownTabs-visual {
+  display: none;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 24px;
+}
+
+.breakdownTabs:has(#breakdownTabs-item-study.is-selected) .breakdownTabs-visual-study,
+.breakdownTabs:has(#breakdownTabs-item-layout.is-selected) .breakdownTabs-visual-layout,
+.breakdownTabs:has(#breakdownTabs-item-check.is-selected) .breakdownTabs-visual-check {
+  display: block;
+}
+
+/* 2. Lista e pulsanti */
+.breakdownTabs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breakdownTabs-item {
+  position: relative;
+  border-bottom: 1px solid var(--color-border-muted, #d0d7de);
+  padding-block: 12px;
+}
+
+.breakdownTabs-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Mette l'icona sopra e il titolo sotto */
+  align-items: flex-start;
+  gap: 12px; /* Spazio verticale tra l'icona e il titolo */
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+/* Allarga l'area cliccabile all'intero blocco del list item */
+.breakdownTabs-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.breakdownTabs-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 600;
+}
+
+.breakdownTabs-toggle {
+  transition: transform 0.2s ease;
+}
+
+/* 3. Comportamento MOBILE (Accordion): nasconde i testi non selezionati */
+.breakdownTabs-ready .breakdownTabs-item:not(.is-selected) .breakdownTabs-text {
+  display: none;
+}
+
+/* Rotazione del triangolo e linea verde sulla voce aperta in mobile */
+.breakdownTabs-item.is-selected .breakdownTabs-toggle {
+  transform: rotate(180deg);
+}
+
+.breakdownTabs-item.is-selected {
+  border-top: 2px solid var(--color-cursor, #1a7f37);
+}
+
+
+/* 4. Comportamento DESKTOP (da 1000px in poi): 3 colonne e testi sempre fissi */
+@media (min-width: 1000px) {
+  .breakdownTabs-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .breakdownTabs-item {
+    border-bottom: none;
+    padding-block: 0;
+    color: var(--color-muted, #636c76);
+    border-top: 2px solid transparent;
+    padding-top: 12px;
+  }
+
+  /* Su desktop i testi rimangono SEMPRE tutti visibili e fissi */
+  .breakdownTabs-ready .breakdownTabs-item .breakdownTabs-text {
+    display: block !important;
+  }
+
+  /* Nasconde il triangolo di apertura su desktop */
+  .breakdownTabs-toggle {
+    display: none;
+  }
+
+  /* Stato selezionato su desktop (titolo nero e linea verde sopra) */
+  .breakdownTabs-item.is-selected {
+    color: inherit;
+    border-top-color: var(--color-cursor, #1a7f37);
+  }
+}
+
+
+
+
+
+
+
+@media (min-width: 1000px) {
+  .breakdownTabs-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+
+  .breakdownTabs-item {
+    border-bottom: none;
+    padding-block: 0;
+    color: var(--color-muted, #636c76);
+    border-top: 2px solid transparent;
+    padding-top: 12px;
+  }
+
+  /* Nasconde la freccina su desktop */
+  .breakdownTabs-toggle {
+    display: none;
+  }
+
+  .breakdownTabs-item.is-selected {
+    color: var(--color-black, #0d1117);
+    border-top-color: var(--color-cursor, #1a7f37);
+  }
+
+  /* Forza la visibilità di tutti e 3 i testi contemporaneamente su desktop */
+  .breakdownTabs .breakdownTabs-list .breakdownTabs-item .breakdownTabs-text {
+    display: block;
+  }
+}
+
+
