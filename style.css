@@ -1543,3 +1543,37 @@ section.theme-light .container {
 }
 
 
+@media (min-width: 1000px) {
+  .breakdownTabs-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;                 /* Spaziatura tra le colonne come in Figma */
+    max-width: 1158px;         /* Larghezza esatta ripresa dal frame Figma */
+    margin: 0 auto;            /* Centra perfettamente il blocco nella pagina */
+    padding: 0 24px;           /* Padding laterale di sicurezza */
+    box-sizing: border-box;
+  }
+
+  .breakdownTabs-item {
+    border-bottom: none;
+    color: var(--color-muted, #636c76);
+    border-top: 2px solid var(--color-border-muted, #d0d7de);
+    padding-top: 16px;
+  }
+
+  /* Nasconde la freccia accordion su desktop */
+  .breakdownTabs-toggle {
+    display: none;
+  }
+
+  /* Stato attivo con bordo superiore verde */
+  .breakdownTabs-item.is-selected {
+    color: var(--color-black, #0d1117);
+    border-top-color: var(--color-cursor, #1a7f37);
+  }
+
+  /* Mantiene tutti e 3 i testi visibili e affiancati */
+  .breakdownTabs .breakdownTabs-list .breakdownTabs-item .breakdownTabs-text {
+    display: block;
+  }
+}
